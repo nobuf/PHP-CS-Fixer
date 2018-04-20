@@ -693,6 +693,27 @@ INPUT
                 ,
                 ['ensure_fully_multiline' => true],
             ],
+            'test with indented multiline arguments' => [
+                <<<'EXPECTED'
+<?php
+function a(
+    $a,
+    $b,
+    $c,
+    $d
+) {
+}
+EXPECTED
+                ,
+                <<<'INPUT'
+<?php
+function a($a, $b,
+           $c, $d) {
+}
+INPUT
+                ,
+                ['ensure_fully_multiline' => true],
+            ],
         ];
     }
 
